@@ -1,8 +1,8 @@
 python-dotenv
 
-langchain
-langchain-core
-langchain-community
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
 
 
 # LLM PROVIDER
@@ -10,7 +10,7 @@ langchain-community
 langchain-groq
 langchain-text-splitters
 
-##vector store
+#vector store
 faiss-cpu
 
 #notebook
