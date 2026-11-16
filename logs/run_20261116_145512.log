@@ -1,0 +1,66 @@
+2026-11-16 14:55:12,228 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-16 14:55:12,228 | INFO | hr_assistant.pipeline | Vector store already exists on disk,resusing it
+2026-11-16 14:55:12,229 | INFO | hr_assistant.vector_store | Loading FAISS index from data/faiss_index
+2026-11-16 14:55:12,229 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-16 14:55:12,230 | INFO | faiss.loader | Loading faiss.
+2026-11-16 14:55:12,241 | INFO | faiss.loader | Successfully loaded faiss.
+2026-11-16 14:55:12,247 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-16 14:55:12,249 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-16 14:55:12,302 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-16 14:55:12,303 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-16 14:55:12,303 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-16 14:55:17,876 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 14:55:17,878 | INFO | hr_assistant.pipeline | User question: hi how are you?
+2026-11-16 14:55:17,920 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:55:17,928 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:55:17,934 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chat_model_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:55:18,716 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:55:18,729 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_end callback: TracerException('No indexed run ID 01a1e4a4-092e-76aa-8882-5e1db7bc4c8f.')
+2026-11-16 14:55:18,729 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a4-0928-704f-a8ce-e89615fe8bbe.')
+2026-11-16 14:55:18,730 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a4-091f-7019-a96e-5c617faa94fa.')
+2026-11-16 14:55:18,730 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m doing great, thank you for asking. How can I assist you today?
+2026-11-16 14:56:37,289 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 14:56:37,291 | INFO | hr_assistant.pipeline | User question: can you tell me how can i take sick note?
+2026-11-16 14:56:37,293 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:37,295 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:37,297 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chat_model_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:37,922 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:56:37,925 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_end callback: TracerException('No indexed run ID 01a1e4a5-3f30-75ce-b021-bb1676a54c4e.')
+2026-11-16 14:56:37,925 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a5-3f2f-76e6-84f1-60d4f487daac.')
+2026-11-16 14:56:37,926 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:37,927 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_tool_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:37,927 | INFO | hr_assistant.tools | search_hr_policy called with query: sick note policy
+2026-11-16 14:56:37,928 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_retriever_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:38,838 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_retriever_end callback: TracerException('No indexed run ID 01a1e4a5-41a7-7420-8b9e-3209e20bfbf4.')
+2026-11-16 14:56:38,839 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-16 14:56:38,839 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_tool_end callback: TracerException('No indexed run ID 01a1e4a5-41a7-7420-8b9e-320839d408c2.')
+2026-11-16 14:56:38,843 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a5-41a6-73f4-bc57-c96b7059f271.')
+2026-11-16 14:56:38,844 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:38,848 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chat_model_start callback: EnvAddressError("The LANGSMITH_AGENT_* env vars can't address a run (LANGSMITH_AGENT_ID='hr_assistant_policy'): An address needs LANGSMITH_AGENT_ENVIRONMENT as well.")
+2026-11-16 14:56:39,808 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:56:39,810 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_llm_end callback: TracerException('No indexed run ID 01a1e4a5-453f-7169-8c9d-05fccc046d63.')
+2026-11-16 14:56:39,810 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a5-453c-74f2-bb09-a186b4dc4ea2.')
+2026-11-16 14:56:39,811 | WARNING | langchain_core.callbacks.manager | Error in LangChainTracer.on_chain_end callback: TracerException('No indexed run ID 01a1e4a5-3f2c-7201-998c-0ee3c703e2e9.')
+2026-11-16 14:56:39,811 | INFO | hr_assistant.pipeline | Final answer: Sure! Here’s how the sick‑leave process works at **Acme Crop**:
+
+1. **Determine if you need a medical certificate**  
+   * You can take up to **2 consecutive sick days** without any documentation.  
+   * If you’ll be absent for **more than 2 consecutive days**, you must provide a **medical certificate (sick note)** from a qualified health professional.
+
+2. **Submit your sick‑leave request**  
+   * Log in to the **HR portal**.  
+   * Choose the “Sick Leave” option and fill in the dates you’ll be absent.  
+   * If your absence is longer than 2 days, **attach the scanned medical certificate** to the request.
+
+3. **Approval**  
+   * Your line manager will review the request and the attached certificate.  
+   * Once approved, the leave will be recorded in the system and your paid sick‑day balance will be updated.
+
+4. **After you return**  
+   * No further action is needed unless your manager asks for additional information.
+
+**Quick recap:**  
+- ≤ 2 days sick leave → no note required.  
+- > 2 days sick leave → upload a medical certificate in the HR portal with your leave request.
+
+If you have any trouble uploading the document or need further assistance, just let me know!

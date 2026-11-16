@@ -1,0 +1,27 @@
+2026-11-16 15:02:55,333 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-16 15:02:55,333 | INFO | hr_assistant.pipeline | Vector store already exists on disk,resusing it
+2026-11-16 15:02:55,333 | INFO | hr_assistant.vector_store | Loading FAISS index from data/faiss_index
+2026-11-16 15:02:55,333 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-16 15:02:55,334 | INFO | faiss.loader | Loading faiss.
+2026-11-16 15:02:55,343 | INFO | faiss.loader | Successfully loaded faiss.
+2026-11-16 15:02:55,346 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-16 15:02:55,347 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-16 15:02:55,394 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-16 15:02:55,395 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-16 15:02:55,395 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-16 15:03:13,253 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 15:03:13,257 | INFO | hr_assistant.pipeline | User question: hi i want to know that how can one take sick leave?
+2026-11-16 15:03:14,357 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 15:03:14,364 | INFO | hr_assistant.tools | search_hr_policy called with query: sick leave procedure
+2026-11-16 15:03:20,846 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-16 15:03:21,735 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 15:03:21,742 | INFO | hr_assistant.pipeline | Final answer: Sure! Here’s how you can take sick leave at Acme Crop:
+
+1. **Log the request** – Go to the HR portal and submit a sick‑leave request.  
+2. **Duration matters**  
+   * **1‑2 consecutive days** – Just submit the request; no extra documentation is needed.  
+   * **3 + consecutive days** – Attach a medical certificate (doctor’s note) to the portal request.  
+3. **Entitlement** – You have **10 paid sick days per calendar year**. Unused sick days do not carry over.  
+4. **Approval** – Your manager and HR will review the request. Once approved, the days will be deducted from your sick‑leave balance.  
+
+That’s it! If you have any trouble with the portal or need a template for the medical certificate, just let me know.

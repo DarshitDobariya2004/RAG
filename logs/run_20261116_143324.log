@@ -1,0 +1,23 @@
+2026-11-16 14:33:24,992 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-16 14:33:24,992 | INFO | hr_assistant.pipeline | Vector store already exists on disk,resusing it
+2026-11-16 14:33:24,992 | INFO | hr_assistant.vector_store | Loading FAISS index from data/faiss_index
+2026-11-16 14:33:24,993 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-16 14:33:24,994 | INFO | faiss.loader | Loading faiss.
+2026-11-16 14:33:25,031 | INFO | faiss.loader | Successfully loaded faiss.
+2026-11-16 14:33:25,040 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-16 14:33:25,041 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-16 14:33:25,151 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-16 14:33:25,152 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-16 14:33:25,152 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-16 14:34:04,863 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 14:34:04,866 | INFO | hr_assistant.pipeline | User question: hi how are you?
+2026-11-16 14:34:05,728 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:34:05,741 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m doing great, thank you for asking. How can I assist you today?
+2026-11-16 14:43:32,692 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 14:43:32,693 | INFO | hr_assistant.pipeline | User question: hi how are you?
+2026-11-16 14:43:33,373 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:43:33,383 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m doing great, thank you for asking. How can I assist you today?
+2026-11-16 14:45:03,893 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-16 14:45:03,895 | INFO | hr_assistant.pipeline | User question: hi how are you?
+2026-11-16 14:45:05,497 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-16 14:45:05,504 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m doing great, thank you for asking. How can I assist you today?

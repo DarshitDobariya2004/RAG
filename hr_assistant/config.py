@@ -8,6 +8,12 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 JINA_API_KEY = os.getenv("JINA_API_KEY")
 
+#tracing
+LANGSMITH_TRACING = os.getenv("LANGSMITH_TRACING", "false")
+LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT","https://eu.api.smith.langchain.com")
+LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
+LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT", "hr_policy_assistant")
+
 ## define the path - Data and vector store
 DATA_FILE_PATH = os.path.join("data","hr_policy.txt")
 
