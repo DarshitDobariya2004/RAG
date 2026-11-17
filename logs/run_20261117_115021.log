@@ -1,0 +1,70 @@
+2026-11-17 11:50:21,535 | INFO | __main__ | === CLI run started ===
+2026-11-17 11:50:21,535 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-17 11:50:21,535 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traced at https://smith.langchain.com
+2026-11-17 11:50:21,535 | INFO | hr_assistant.pipeline | Vector store already exists on disk,resusing it
+2026-11-17 11:50:21,535 | INFO | hr_assistant.vector_store | Loading FAISS index from data/faiss_index
+2026-11-17 11:50:21,535 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-17 11:50:21,537 | INFO | faiss.loader | Loading faiss.
+2026-11-17 11:50:21,576 | INFO | faiss.loader | Successfully loaded faiss.
+2026-11-17 11:50:21,580 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-17 11:50:21,581 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-17 11:50:21,650 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-17 11:50:21,651 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-17 11:50:21,651 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-17 11:50:21,651 | INFO | hr_assistant.pipeline | User question: How many paid annual leave days do I get?
+2026-11-17 11:50:22,383 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:22,400 | INFO | hr_assistant.tools | search_hr_policy called with query: paid annual leave days
+2026-11-17 11:50:22,999 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:50:23,284 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:23,287 | INFO | hr_assistant.pipeline | Final answer: According to Acme Crop’s leave policy, all full‑time employees receive **20 days of paid annual leave each calendar year**.
+2026-11-17 11:50:23,287 | INFO | hr_assistant.pipeline | User question: what is the notice period during probation
+2026-11-17 11:50:23,711 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:23,717 | INFO | hr_assistant.tools | search_hr_policy called with query: notice period during probation
+2026-11-17 11:50:35,590 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:50:35,948 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:35,956 | INFO | hr_assistant.pipeline | Final answer: During the probation period, the required notice period is **15 days** (instead of the standard 30 days for regular employees).
+2026-11-17 11:50:35,956 | INFO | hr_assistant.pipeline | User question: can i work from home every day?
+2026-11-17 11:50:36,345 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:36,349 | INFO | hr_assistant.tools | search_hr_policy called with query: work from home policy
+2026-11-17 11:50:40,377 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:50:41,223 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:41,228 | INFO | hr_assistant.pipeline | Final answer: According to Acme Crop’s **Work‑From‑Home policy**, employees may work from home **up to 2 days per week** with manager approval.  
+
+A fully remote arrangement (i.e., working from home every day) is only possible if you obtain **written approval from your department head**. Even then, you must remain reachable during the core hours of **10 AM – 4 PM**.
+
+So, unless you receive that special written approval, you can’t work from home every day—​but you can schedule up to two days per week after getting your manager’s okay. If you’d like to explore a full‑remote option, you’ll need to submit a request to your department head for written approval.
+2026-11-17 11:50:41,229 | INFO | hr_assistant.pipeline | User question: i am very frustrated,and very stressed from this work,should i resign?
+2026-11-17 11:50:41,779 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:41,782 | INFO | hr_assistant.tools | search_hr_policy called with query: resignation notice period exit process
+2026-11-17 11:50:42,150 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:50:43,674 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:43,679 | INFO | hr_assistant.pipeline | Final answer: I’m sorry you’re feeling this way. While I can’t tell you whether you should resign, I can share the company’s policies that apply if you decide to move forward with a resignation:
+
+**Notice period**  
+- Employees who wish to resign must give **30 days’ notice**.  
+- If you are still within your **probation period (first 3 months)**, the required notice is reduced to **15 days**.  
+- The company may, at its discretion, waive the notice period.
+
+**Exit / clearance process**  
+- After you submit your resignation, you will need to complete a clearance process with **IT, Finance, and HR** before your last working day.  
+- Your **full and final settlement** (including any pending reimbursements and leave encashment) will be processed **within 45 days** of your last working day.
+
+If you’re feeling stressed, you might also consider:
+
+- Speaking with your manager or a trusted colleague about the workload or any specific concerns.  
+- Reaching out to the **Employee Assistance Program (EAP)**, which offers confidential counseling and support for personal or work‑related stress.  
+- Contacting HR directly to discuss any accommodations, flexible‑working options, or other resources that might help improve your situation.
+
+If you decide that resigning is the best step for you, be sure to submit a written resignation notice that meets the 30‑day (or 15‑day, if on probation) requirement, and then follow the clearance steps outlined above.  
+
+If you have any other questions about the process or need help with the paperwork, feel free to let me know.
+2026-11-17 11:50:43,679 | INFO | hr_assistant.pipeline | User question: i want to access the most important documets of acme group,how to do that?
+2026-11-17 11:50:44,302 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:44,306 | INFO | hr_assistant.tools | search_hr_policy called with query: access important documents Acme group
+2026-11-17 11:50:56,022 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:50:56,473 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:50:56,478 | INFO | hr_assistant.tools | search_hr_policy called with query: how to access company documents
+2026-11-17 11:51:02,173 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-17 11:51:02,849 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-17 11:51:02,856 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have information on how to access the company’s important documents. If you need that detail, you may want to contact your manager or the HR department directly.
+2026-11-17 11:51:02,856 | INFO | __main__ | === CLI run finished ===
