@@ -1,0 +1,32 @@
+2026-11-18 13:16:12,246 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-18 13:16:12,246 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traced at https://smith.langchain.com
+2026-11-18 13:16:12,668 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-11-18 13:16:12,669 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-18 13:16:12,678 | INFO | hr_assistant.pipeline | No Qdrant Cloud collection, building one from scratch
+2026-11-18 13:16:12,679 | INFO | hr_assistant.document_loader | Loading document from data/hr_policy.txt
+2026-11-18 13:16:12,680 | INFO | hr_assistant.document_loader | Loaded 1 documet(s)
+2026-11-18 13:16:12,680 | INFO | hr_assistant.splitter | Split document(s) into 9 chunk(s)
+2026-11-18 13:16:12,680 | INFO | hr_assistant.vector_store | Embedding 9 chunk(s) and uploading to Qdrant collection 'hr_policy'.
+2026-11-18 13:16:12,680 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-18 13:16:13,080 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-18 13:16:13,081 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-11-18 13:16:15,805 | INFO | httpx | HTTP Request: PUT https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-11-18 13:16:16,634 | INFO | httpx | HTTP Request: PUT https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points?wait=true "HTTP/1.1 200 OK"
+2026-11-18 13:16:16,636 | INFO | hr_assistant.vector_store | Upload to Qdrant collection hr_policy
+2026-11-18 13:16:16,636 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-18 13:16:16,645 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-18 13:16:16,663 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-18 13:16:16,669 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-18 13:16:16,669 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-18 13:20:55,109 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-18 13:20:55,111 | INFO | hr_assistant.pipeline | User question: hi  who are you?
+2026-11-18 13:20:55,624 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:20:56,182 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:20:56,184 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m your friendly HR assistant here at Acme Crop. I’m happy to help you with any questions you have about our policies, benefits, or anything else HR‑related. How can I assist you today?
+2026-11-18 13:20:56,223 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
+2026-11-18 13:22:30,098 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-18 13:22:30,101 | INFO | hr_assistant.pipeline | User question: hi who are you?
+2026-11-18 13:22:30,466 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:22:31,619 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:22:31,624 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m your friendly HR assistant for Acme Crop. I’m here to help you with any questions you have about our policies, benefits, or anything else related to working at Acme Crop. How can I assist you today?
+2026-11-18 13:22:32,037 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

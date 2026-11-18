@@ -1,0 +1,44 @@
+2026-11-18 13:27:36,249 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-18 13:27:36,250 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traced at https://smith.langchain.com
+2026-11-18 13:27:36,684 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-18 13:27:36,685 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-11-18 13:27:36,688 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists,resusing it
+2026-11-18 13:27:36,688 | INFO | hr_assistant.vector_store | Connecting to qdrant cloud
+2026-11-18 13:27:36,688 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-18 13:27:37,056 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-11-18 13:27:37,078 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-18 13:27:37,798 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-18 13:27:37,801 | INFO | hr_assistant.llm | Initializing LLM openai/gpt-oss-120b
+2026-11-18 13:27:37,816 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-18 13:27:37,821 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-18 13:27:37,821 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-18 13:27:42,293 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-18 13:27:42,295 | INFO | hr_assistant.pipeline | User question: hi how are you?
+2026-11-18 13:27:42,768 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:27:43,353 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:27:43,357 | INFO | hr_assistant.pipeline | Final answer: Hello! I’m doing great, thank you for asking. How can I assist you today?
+2026-11-18 13:27:43,608 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:30:03,220 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-18 13:30:03,223 | INFO | hr_assistant.pipeline | User question: can you help me to make a coffee?
+2026-11-18 13:30:03,750 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:30:04,785 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:30:04,797 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have information on that.
+2026-11-18 13:30:05,655 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:43:01,818 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-18 13:43:01,827 | INFO | hr_assistant.pipeline | User question: i am fed up of this organization, tell me the exist policy
+2026-11-18 13:43:02,674 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:43:03,173 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:43:03,206 | INFO | hr_assistant.tools | search_hr_policy called with query: What is the exit policy at Acme Crop?
+2026-11-18 13:43:15,013 | INFO | httpx | HTTP Request: POST https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-11-18 13:43:15,026 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-18 13:43:16,105 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-18 13:43:16,108 | INFO | hr_assistant.pipeline | Final answer: Sure, I’m happy to help. Here’s a quick overview of Acme Crop’s **exit (resignation/termination) policy**:
+
+| Step | What Happens | Timeline |
+|------|--------------|----------|
+| **Notice Period** | • If you resign, you must give **30 days’ notice**.<br>• During the probation period, the notice period is **15 days**.<br>• The company can waive the notice period at its discretion. | Effective from the day you submit your resignation. |
+| **Clearance Process** | Before your last working day, you’ll need to complete clearances with three key departments: **IT, Finance, and HR**. This ensures all company assets are returned, any pending reimbursements are settled, and your records are updated. | Must be completed **before** your final day of work. |
+| **Full & Final Settlement** | After the clearance is done, the company processes your **full and final settlement**, which includes any pending reimbursements, leave encashment, and other dues. | Settlement is completed **within 45 days** of your last working day. |
+
+If you have any specific questions—such as how to start the clearance, what documents you’ll need, or details about leave encashment—just let me know and I can walk you through the next steps.
+2026-11-18 13:43:16,421 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

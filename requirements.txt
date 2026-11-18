@@ -11,7 +11,8 @@ langchain-groq
 langchain-text-splitters
 
 #vector store
-faiss-cpu
+langchain-qdrant
+qdrant-client
 
 #notebook
 jupyter
