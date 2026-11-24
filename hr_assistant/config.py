@@ -8,6 +8,10 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 JINA_API_KEY = os.getenv("JINA_API_KEY")
 
+##LLM GATEWAYS
+LLM_GATEWAY_API_KEY = os.getenv("LLM_GATEWAY_API")
+LLM_GATEWAY_URL = os.getenv("LLM_GATEWAY_URL")
+
 ##GUARD MODEL
 GUARD_MODEL_NAME = "openai/gpt-oss-safeguard-20b"
 
@@ -25,7 +29,8 @@ QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 QDRANT_COLLECTION_NAME = os.getenv("QDRANT_COLLECTION_NAME","hr_policy")
 
 #MODELS
-LLM_MODEL_NAME = "openai/gpt-oss-120b"
+LLM_MODEL_NAME = "groq/gpt-oss-120b"
+LLM_BACKUP_MODEL_NAME="groq/llama-3.1-8b-instant"
 
 # LLM and EMBEDDING MODEL
 EMBEDDING_MODEL_NAME = "jina-embeddings-v2-base-en"

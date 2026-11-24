@@ -1,0 +1,91 @@
+2026-11-24 11:53:41,777 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-24 11:53:41,777 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traced at https://smith.langchain.com
+2026-11-24 11:53:42,260 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-24 11:53:42,261 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-11-24 11:53:42,264 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists,resusing it
+2026-11-24 11:53:42,264 | INFO | hr_assistant.vector_store | Connecting to qdrant cloud
+2026-11-24 11:53:42,264 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-24 11:53:42,630 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-24 11:53:42,632 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-11-24 11:53:50,400 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-24 11:53:50,404 | INFO | hr_assistant.llm | Initializing LLM via LLM Gateway
+2026-11-24 11:53:50,404 | INFO | hr_assistant.gateway | Routing LLM calls through LLM Gateway (primary=groq/gpt-oss-120b, backup=groq/llama-3.1-8b-instant)
+2026-11-24 11:53:50,448 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-24 11:53:50,450 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-24 11:53:50,450 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-24 11:53:53,516 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 11:53:53,517 | INFO | hr_assistant.pipeline | User question: hi
+2026-11-24 11:53:53,817 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:53:55,019 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:53:55,032 | INFO | hr_assistant.pipeline | Final answer: Hello! 👋 I'm your friendly HR assistant at Acme Crop. How can I help you today?
+2026-11-24 11:53:55,367 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:55:04,432 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 11:55:04,434 | INFO | hr_assistant.pipeline | User question: can you tell me how to make a coffee?
+2026-11-24 11:55:04,916 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:55:06,188 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:55:06,194 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-11-24 11:55:06,494 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:56:40,818 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 11:56:40,820 | INFO | hr_assistant.pipeline | User question: can you tell me,what is the procedure for applying for resignation?
+2026-11-24 11:56:41,633 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:56:42,540 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:56:42,548 | INFO | hr_assistant.tools | search_hr_policy called with query: procedure for applying for resignation
+2026-11-24 11:56:47,256 | INFO | httpx | HTTP Request: POST https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-11-24 11:56:47,259 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-24 11:56:48,998 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:56:49,004 | INFO | hr_assistant.pipeline | Final answer: **Procedure for Applying for Resignation at Acme Crop**
+
+1. **Submit a Written Resignation**  
+   - Draft a formal resignation letter/email addressed to your manager and the HR department.  
+   - Include your intended last working day (based on the notice period below).
+
+2. **Serve the Required Notice Period**  
+   - **Standard employees:** 30 days notice.  
+   - **During probation (first 3 months):** 15 days notice.  
+   - The company may, at its discretion, waive the notice period; if this happens, the waiver will be confirmed in writing.
+
+3. **Obtain Managerial Approval**  
+   - Your manager should acknowledge receipt of the resignation and confirm the notice period dates.
+
+4. **Clearance Process (Exit Policy)**  
+   - **IT Department:** Return all company devices, deactivate accounts, and obtain a clearance sign‑off.  
+   - **Finance Department:** Settle any outstanding reimbursements, expense claims, and receive a clearance for any financial obligations.  
+   - **HR Department:** Complete the exit interview, hand over any company property (e.g., ID cards, access cards), and receive the final clearance form.
+
+5. **Final Settlement**  
+   - After all clearances are signed, HR processes your full and final settlement, which includes any pending reimbursements and leave encashment.  
+   - Settlement is completed **within 45 days of your last working day**.
+
+6. **Confirmation of Exit**  
+   - HR will provide you with a formal exit confirmation letter and a copy of the settlement statement.
+
+**Key Points to Remember**
+
+- The notice period is **30 days** (or **15 days** if you are still in probation).  
+- All clearances must be completed **before** your last working day.  
+- The full and final settlement is processed **within 45 days** after your exit.  
+
+If you need a template for the resignation letter or assistance with any step of the clearance process, just let me know!
+2026-11-24 11:56:49,612 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:09,061 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 12:03:09,063 | INFO | hr_assistant.pipeline | User question: okay and tell me what if the settlement is not completed within 45 days?
+2026-11-24 12:03:09,634 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:10,582 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:10,588 | INFO | hr_assistant.tools | search_hr_policy called with query: settlement not completed within 45 days
+2026-11-24 12:03:19,015 | INFO | httpx | HTTP Request: POST https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-11-24 12:03:19,017 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-11-24 12:03:20,578 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:20,583 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but the HR policy I have access to does not specify what happens if a full‑and‑final settlement is not completed within the 45‑day timeframe. If you need clarification on this point, I recommend contacting the HR department directly.
+2026-11-24 12:03:21,205 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:40,033 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 12:03:40,034 | INFO | hr_assistant.pipeline | User question: okay,thanks
+2026-11-24 12:03:40,393 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:41,143 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:03:41,145 | INFO | hr_assistant.pipeline | Final answer: You’re welcome! If you have any other questions about Acme Crop’s policies or need assistance with anything else, just let me know.
+2026-11-24 12:03:41,171 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-11-24 12:03:41,171 | INFO | groq._base_client | Retrying request to /openai/v1/chat/completions in 20.000000 seconds
+2026-11-24 12:04:01,502 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:11:03,445 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 12:11:03,447 | INFO | hr_assistant.pipeline | User question: and just a quick question can i get the information of the accounts of all the employees
+2026-11-24 12:11:03,868 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 12:11:03,873 | WARNING | hr_assistant.guardrail | Input guard BLOCKED question: and just a quick question can i get the information of the accounts of all the employees | reason: User is requesting account information for all employees, which is a request for other employee data.

@@ -20,3 +20,6 @@ ipykernel
 
 #webapp
 streamlit
+
+##llm gateway
+langchain-openai

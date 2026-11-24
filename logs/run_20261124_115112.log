@@ -1,0 +1,20 @@
+2026-11-24 11:51:12,772 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-11-24 11:51:12,772 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traced at https://smith.langchain.com
+2026-11-24 11:51:14,811 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-11-24 11:51:14,812 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-24 11:51:14,814 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists,resusing it
+2026-11-24 11:51:14,814 | INFO | hr_assistant.vector_store | Connecting to qdrant cloud
+2026-11-24 11:51:14,814 | INFO | hr_assistant.embeddings | Initilizing embeddings model jina-embeddings-v2-base-en
+2026-11-24 11:51:15,170 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-11-24 11:51:15,188 | INFO | httpx | HTTP Request: GET https://652e561e-f224-437c-8f75-f4fd8b0e5e66.ca-central-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-11-24 11:51:23,134 | INFO | hr_assistant.vector_store | creating retriever with top_k=3
+2026-11-24 11:51:23,137 | INFO | hr_assistant.llm | Initializing LLM via LLM Gateway
+2026-11-24 11:51:23,138 | INFO | hr_assistant.gateway | Routing LLM calls through LLM Gateway (primary=groq/openai/gpt-oss-120b, backup=groq/llama-3.1-8b-instant)
+2026-11-24 11:51:23,501 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-11-24 11:51:23,504 | INFO | hr_assistant.agent | HR agent is ready
+2026-11-24 11:51:23,504 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-11-24 11:51:29,237 | INFO | __main__ | === Streamlit run: new question received ===
+2026-11-24 11:51:29,238 | INFO | hr_assistant.pipeline | User question: hi
+2026-11-24 11:51:29,622 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-11-24 11:51:29,895 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-11-24 11:51:30,141 | INFO | httpx2 | HTTP Request: POST https://api.llmgateway.io/v1/chat/completions "HTTP/1.1 400 Bad Request"
